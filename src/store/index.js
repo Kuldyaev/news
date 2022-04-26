@@ -1,4 +1,6 @@
 import { createStore } from 'vuex'
+import Posts from './modules/posts'
+import Users from './modules/users'
 
 
 export default createStore({
@@ -6,5 +8,8 @@ export default createStore({
   mutations: {},
   actions: {},
   getters: {},
-  modules: {}
+  modules: {
+    Posts,
+    Users
+  }
 })

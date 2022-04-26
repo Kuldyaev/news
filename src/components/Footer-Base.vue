@@ -1,9 +1,9 @@
 <template>
-  <footer>
-    <div class="footerBlock">
-        Created by <i><a href="https://www.kuldyaev.ru" class="myWeb">Viacheclav Kuldyaev</a></i> &#169;  2022
-    </div>
-</footer>
+    <footer>
+        <div class="container footerBlock">
+            Created by <i><a href="https://www.kuldyaev.ru" class="myWeb">Viacheclav Kuldyaev</a></i> &#169;  2022
+        </div>
+    </footer>
 </template>
 
 <script>
@@ -18,8 +18,8 @@
         width: 100%;
         background-color: grey;
         display: flex;
-        justify-content: right;
         align-items: center;
+        justify-content: center;
         min-height: 40px;
     }
     a{
@@ -27,6 +27,7 @@
     }
     .footerBlock{
         color: silver;
-        margin-right: 10px;
+        text-align: right;
+        padding-right: 10px;
     }
 </style>

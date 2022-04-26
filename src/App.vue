@@ -33,4 +33,19 @@ html, body{
 a{
   text-decoration: none;
 }
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container{
+  width: 1440px;
+  margin: 3px auto; 
+}
+@media only screen and (max-width: 1440px){
+ .container{
+    width: 100vw;
+    margin: 3px 0; 
+ }
+}
 </style>

@@ -1,9 +1,11 @@
 <template>
-  <header>
-    <router-link  :to="'/'"  class="link">
-        <img :src="require('@/assets/img/news.jpg')" alt="news"/>
-    </router-link>
-</header>
+    <header>
+        <div class="container">
+            <router-link  :to="'/'"  class="link">
+                <img :src="require('@/assets/img/news.jpg')" alt="news"/>
+            </router-link>
+        </div>
+    </header>
 </template>
 
 <script>
@@ -23,12 +25,12 @@
     }
     .link{
         display: block;
-        height: 96%;
+        height: 70px;
         width: 193.5px; 
         margin: 2% 0 2% 15px;
     }
     img{
-        height: 100%;
+        height: 70px;;
         width: auto;
     }
 
