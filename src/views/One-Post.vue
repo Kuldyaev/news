@@ -5,19 +5,22 @@
                 <h4>&#9668;&nbsp;back to posts</h4>
             </router-link>
         </div>
-        <OnePostBody />    
+        <OnePostBody /> 
+        <h5>comments:</h5>
+        <OnePostComments />   
     </div>
 </template>
 
 <script>
     import OnePostBody from '@/components/One-Post-Body.vue'
+    import OnePostComments from '@/components/One-Post-Comments.vue'
 
     export default {
         name: 'One-Post',
         components: {
-            OnePostBody
-        },
-
+            OnePostBody,
+            OnePostComments
+        }
     }
 </script>
 

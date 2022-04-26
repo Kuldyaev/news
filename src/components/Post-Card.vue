@@ -21,7 +21,7 @@
             }),
             author(){
                 let author = 'guest';
-                author = this.users.filter(user => user.id == 1)[0].username;
+                author = this.users.filter(user => user.id == this.post.userId)[0].username;
                 return author;
             }
         }

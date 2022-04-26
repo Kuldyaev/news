@@ -22,6 +22,7 @@ export default {
     })
   },
   beforeMount () {
+    this.$store.dispatch('Users/fetchAllUsers',{}),
     this.$store.dispatch('Posts/fetchAllPosts',{})
   }
 }
