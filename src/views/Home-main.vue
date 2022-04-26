@@ -7,7 +7,7 @@
           <option
             v-for="item in options"
             v-bind:key="item.id"
-            v-bind:value="item"
+            v-bind:value="item.id"
             v-text="item.text"
           ></option>
         </select>
@@ -18,7 +18,7 @@
     </div>
   </div>
   <div class="container">
-    <div class="postCard center" v-for="post of this.posts" :key="post.id">
+    <div class="postCard center" v-for="post of this.filteredPosts" :key="post.id">
       <PostCard :post=post />
     </div>
   </div>
@@ -33,8 +33,8 @@ export default {
   data(){
     return {
       author: 'all',
-      options: [
-        { text: 'all', value: 0 , id: 0}
+      optionsBase: [
+        { text: 'all', id: 0}
       ]
     }
   },
@@ -43,8 +43,35 @@ export default {
   },
   computed: {
     ...mapState({
-      posts: state => state.Posts.posts
-    })
+      posts: state => state.Posts.posts,
+      users: state => state.Users.users
+    }),
+    options(){
+      let optionsIndexList=[];
+      let optionsList=this.optionsBase;
+      this.posts.map(post=>{
+        if (!optionsIndexList.includes(post.userId)){
+           optionsIndexList.push(post.userId);
+        }
+      });
+      optionsIndexList.forEach(indx => {
+        let newUsername = this.users.filter(user => user.id == indx)[0].username;
+        let newItem = {
+          text:  newUsername,
+          id: indx
+        };
+        optionsList.push(newItem);
+      });
+      return optionsList;
+    },
+    filteredPosts(){
+      if (this.author === 'all' || this.author === 0){
+        return this.posts;
+      } else {
+        let myPosts = this.posts.filter(post => post.userId == this.author);
+        return myPosts;
+      }
+    }
   },
    methods: {
     sortAz () {
