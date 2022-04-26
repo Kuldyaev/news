@@ -10,6 +10,15 @@ const routes = [
     path: '/post/:id',
     name: 'One-Post',
     component: () => import('../views/One-Post.vue')
+  },
+  {
+    path: '/404',
+    name: 'PageNotExist',
+    component: () => import('../views/404-Page.vue')
+  },
+  {
+    path: '/:catchAll(.*)', 
+    redirect: '/404'
   }
 ]
 

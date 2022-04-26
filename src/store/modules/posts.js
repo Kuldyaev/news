@@ -13,7 +13,31 @@ export default {
     mutations: {
       updatePosts (state, posts) {
           state.posts = posts
-        }
+        },
+      sortAz (state) {
+        let newPosts = state.posts;
+        newPosts.sort(function(a, b){
+          var nameA=a.title.toLowerCase(), nameB=b.title.toLowerCase();
+          if (nameA < nameB) 
+            return -1
+          if (nameA > nameB)
+            return 1
+          return 0 
+        })
+        state.posts = newPosts;
+      },
+      sortZa (state) {
+        let newPosts = state.posts;
+        newPosts.sort(function(a, b){
+          var nameA=a.title.toLowerCase(), nameB=b.title.toLowerCase();
+          if (nameA < nameB) 
+            return 1
+          if (nameA > nameB)
+            return -1
+          return 0 
+        })
+        state.posts = newPosts;
+      }
     },
     state: { 
         posts:[
